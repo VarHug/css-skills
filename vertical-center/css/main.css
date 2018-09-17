@@ -1,0 +1,52 @@
+.demo {
+  display: inline-block;
+  margin-right: 50px;
+}
+.box-wrapper {
+  border: 1px solid #000;
+  width: 300px;
+  height: 300px;
+}
+.box {
+  background: #e800e8;
+  text-align: center;
+}
+.box.size {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}
+/* 固定宽高 */
+
+/* 法1:absolute + 负margin */
+.box-wrapper-1 {
+  position: relative;
+}
+.box-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+/* 法2:absolute + margin auto */
+.box-wrapper-2 {
+  position: relative;
+}
+.box-2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+/* 法3:absolute + calc */
+.box-wrapper-3 {
+  position: relative;
+}
+.box-3 {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
