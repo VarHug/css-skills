@@ -1,5 +1,6 @@
 .demo {
   display: inline-block;
+  vertical-align: top;
   margin-right: 50px;
 }
 .box-wrapper {
@@ -49,4 +50,89 @@
   position: absolute;
   top: calc(50% - 50px);
   left: calc(50% - 50px);
+}
+
+/* 不定宽高 */
+
+/* 法4:absolute + transform */
+.box-wrapper-4 {
+  position: relative;
+}
+.box-4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 法5:text-align + vertical-align */
+.box-wrapper-5 {
+  line-height: 300px;
+  text-align: center;
+  font-size: 0;
+}
+.box-5 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: initial;
+  text-align: left;
+  font-size: 16px;
+}
+
+/* 法6:writing-mode */
+.box-wrapper-6 {
+  writing-mode: vertical-lr;
+  text-align: center;
+}
+.box-wrapper-inner-6 {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.box-6 {
+  display: inline-block;
+  margin: auto;
+  text-align: left;
+}
+
+/* 法7:css-table */
+.box-wrapper-7 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.box-7 {
+  display: inline-block;
+}
+
+/* 法8:flex */
+.box-wrapper-8 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 法8:grid */
+.box-wrapper-9 {
+  display: grid;
+}
+.box-9 {
+  align-self: center;
+  justify-self: center;
+}
+
+.box-wrapper-10 {
+  text-align: center;
+}
+.box-10 {
+  display: inline-block;
+  vertical-align: middle;
+}
+.box-wrapper-10::after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 100%;
 }
