@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      height: 300px;
+    }
+    .left {
+      width: 300px;
+      height: 100px;
+      background: #FF79BC;
+    }
+    .center {
+      height: 200px;
+      text-align: center;
+      font-size: 30px;
+      color: #fff;
+      background: #666;
+    }
+    .right {
+      width: 300px;
+      height: 100px;
+      background: #CA8EFF;
+    }
+  </style>
+</head>
+<body>
+  <!-- float解决方案 -->
+  <style>
+    .l1 {
+      float: left;
+    }
+    .c1 {
+      margin: 0 300px;
+    }
+    .r1 {
+      float: right;
+    }
+  </style>
+  <div class="container ct1">
+    <div class="left l1"></div>
+    <div class="right r1"></div>
+    <div class="center c1">float解决方案，DOM顺序与视觉顺序不符</div>
+  </div>
+  <!-- 绝对定位解决方案 -->
+  <style>
+    .ct2 {
+      position: relative;
+    }
+    .l2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .c2 {
+      margin: 0 300px;
+    }
+    .r2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  </style>
+  <div class="container ct2">
+    <div class="left l2"></div>
+    <div class="center c2">绝对定位解决方案</div>
+    <div class="right r2"></div>
+  </div>
+  <!-- 圣杯布局(margin负值解决方案) -->
+  <style>
+    .inner {
+      width: 100%;
+      float: left;
+    }
+    .inner .c3 {
+      margin: 0 300px;
+    }
+    .l3 {
+      float: left;
+      margin-left: -100%;
+    }
+    .r3 {
+      float: left;
+      margin-left: -300px;
+    }
+  </style>
+  <div class="container ct3">
+    <div class="inner">
+      <div class="center c3">圣杯布局(margin负值解决方案),DOM顺序与视觉顺序不符</div>
+    </div>
+    <div class="left l3"></div>
+    <div class="right r3"></div>
+  </div>
+  <style>
+    .ct4 {
+      display: table;
+      width: 100%;
+      margin-bottom: 100px;
+    }
+    .ct4 > div {
+      display: table-cell;
+    }
+    .l4 {
+      width: 300px;
+    }
+    .r4 {
+      width: 300px;
+    }
+  </style>
+  <div class="container ct4">
+    <div class="left l4"></div>
+    <div class="center c4">表格布局(等高)</div>
+    <div class="right r4"></div>
+  </div>
+  <!-- 弹性盒子flex解决方案 -->
+  <style>
+    .ct5 {
+      display: flex;
+    }
+    .l5 {
+      flex: 0 0 300px;
+    }
+    .c5 {
+      flex: 1;
+    }
+    .r5 {
+      flex: 0 0 300px;
+    }
+  </style>
+  <div class="container ct5">
+    <div class="left l5"></div>
+    <div class="center c5">弹性盒子flex解决方案</div>
+    <div class="right r5"></div>
+  </div>
+  <!-- 网格Grid解决方案 -->
+  <style>
+    .ct6 {
+      display: grid;
+      grid-template-columns: 300px auto 300px;
+    }
+  </style>
+  <div class="container ct6">
+    <div class="left l6"></div>
+    <div class="center c6">网格Grid解决方案</div>
+    <div class="right r6"></div>
+  </div>
+</body>
+</html>
